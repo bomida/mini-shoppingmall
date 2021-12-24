@@ -8,7 +8,7 @@
   "start_url": "index.html",
   "background_color": "#3f454d",
   "theme_color": "#3f454d",
-  "orientation": "any maskable",
+  "orientation": "portrait",
   "prefer_related_applications": "false",
   "icons": [
     {
