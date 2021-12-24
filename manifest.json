@@ -5,7 +5,7 @@
   "short_name": "Mini Shopping Mall",
   "scope": "/",
   "display": "standalone",
-  "start_url": "https://aec4450b3847.ngrok.io/",
+  "start_url": "index.html",
   "background_color": "transparent",
   "theme_color": "transparent",
   "orientation": "any",
