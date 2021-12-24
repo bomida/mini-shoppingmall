@@ -48,3 +48,8 @@ loadItems()
     setEventListeners(items);
   })
   .catch(console.log);
+
+
+
+  // 아 왜 안되는거야아아아ㅠ ㅠㅠㅠ
+  // 커밋도 안되고요ㅠㅠㅠ
