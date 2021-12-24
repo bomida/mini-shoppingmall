@@ -1,8 +1,8 @@
 {
   "dir": "ltr",
   "lang": "en",
-  "name": "Online Shopping",
-  "short_name": "Online Shopping",
+  "name": "Mini Shopping Mall",
+  "short_name": "Mini Shopping Mall",
   "scope": "/",
   "display": "standalone",
   "start_url": "https://aec4450b3847.ngrok.io/",
