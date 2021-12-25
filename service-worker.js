@@ -26,3 +26,16 @@ self.addEventListener('activate', evt => {
     })
   );
 });
+
+
+// self.addEventListener('fetch', evt => {
+//   // CODELAB : Add fetch event handler here.
+//   evt.respondWith(
+//     caches.open(CACHE_NAME).then(cache => {
+//       return cache.match(evt.request)
+//         .then((Response) => {
+//           return Response || fetch(evt.request);
+//         });
+//     })
+//   );
+// });
