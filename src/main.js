@@ -1,14 +1,3 @@
-// CODELAB : Register service worker.
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("service-worker.js")
-      .then((reg) => {
-        console.log('Service worker registered.', reg);
-      })
-      .catch(e => console.log(e));
-  });
-}
-
 // Fetch the items from the JSON file
 function loadItems() {
   return fetch('data/data.json')
