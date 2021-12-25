@@ -1,52 +1,40 @@
-const CACHE_NAME = 'offline';
-const OFFLINE_URL = 'offline.html';
 
-self.addEventListener('install', function(event) {
-  console.log('[ServiceWorker] Install');
-  
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE_NAME);
-    // Setting {cache: 'reload'} in the new request will ensure that the response
-    // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
-    await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
-  })());
-  
-  self.skipWaiting();
+const CACHE_NAME = 'pwabuilder-page-v1';
+
+// CODELAB : Add list of files to cache here.
+const FILES_TO_CACHE = 'offline.html';
+
+self.addEventListener('install', evt => {
+  // CODELAB : Precache static resources here.
+  evt.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      console.log(`[ServiceWorker] Pre-caching offline page`);
+      return cache.addAll(FILES_TO_CACHE);
+    })
+  );
 });
 
-self.addEventListener('activate', (event) => {
-  console.log('[ServiceWorker] Activate');
-  event.waitUntil((async () => {
-    // Enable navigation preload if it's supported.
-    // See https://developers.google.com/web/updates/2017/02/navigation-preload
-    if ('navigationPreload' in self.registration) {
-      await self.registration.navigationPreload.enable();
-    }
-  })());
-
-  // Tell the active service worker to take control of the page immediately.
-  self.clients.claim();
-});
-
-self.addEventListener('fetch', function(event) {
-  // console.log('[Service Worker] Fetch', event.request.url);
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResponse = await event.preloadResponse;
-        if (preloadResponse) {
-          return preloadResponse;
+self.addEventListener('activate', evt => {
+  // CODELAB : Remove previous cached data from disk.
+  evt.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(keyList.map(key => {
+        if (key !== CACHE_NAME) {
+          console.log('[SerciveWorker] Removing old cache', key);
         }
+      }));
+    })
+  );
+});
 
-        const networkResponse = await fetch(event.request);
-        return networkResponse;
-      } catch (error) {
-        console.log('[Service Worker] Fetch failed; returning offline page instead.', error);
-
-        const cache = await caches.open(CACHE_NAME);
-        const cachedResponse = await cache.match(OFFLINE_URL);
-        return cachedResponse;
-      }
-    })());
-  }
+self.addEventListener('fetch', evt => {
+  // CODELAB : Add fetch event handler here.
+  evt.respondWith(
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(evt.request)
+        .then((Response) => {
+          return Response || fetch(evt.request);
+        });
+    })
+  );
 });
