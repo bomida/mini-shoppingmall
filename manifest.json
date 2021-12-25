@@ -1,13 +1,6 @@
 {
   "name": "Mini Shopping Mall",
   "short_name": "Mini Shopping",
-  "scope": "/",
-  "display": "standalone",
-  "start_url": "index.html",
-  "background_color": "#3f454d",
-  "theme_color": "#3f454d",
-  "orientation": "portrait",
-  "prefer_related_applications": true,
   "icons": [
     {
       "src": "images/128x128.png",
@@ -39,5 +32,12 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ]
+  ],
+  "scope": "/",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#3f454d",
+  "theme_color": "#3f454d",
+  "orientation": "portrait",
+  "prefer_related_applications": true
 }
