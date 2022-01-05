@@ -18,8 +18,8 @@ HTML, CSS, Vanilla JS를 이용한 미니 쇼핑몰 게임 앱을 만들었습�
 ## 문제 사항
   - 로컬 호스트에서 확인 시 PWA 적용사항이 확인 되지만<br>깃헙 페이지 링크로 확인 시 적용 사항이 보이지 않는다.
 
-  <img src="https://user-images.githubusercontent.com/93115007/148216962-3ef84c38-6962-4e0a-bd2e-9508ddaacbc6.png" width="500">
-  <img src="https://user-images.githubusercontent.com/93115007/148217034-8d1de9a9-399a-4d9a-bf82-ee038dc8d307.png" width="500">
+  <img src="https://user-images.githubusercontent.com/93115007/148216962-3ef84c38-6962-4e0a-bd2e-9508ddaacbc6.png" width="400">
+  <img src="https://user-images.githubusercontent.com/93115007/148217034-8d1de9a9-399a-4d9a-bf82-ee038dc8d307.png" width="400">
 
 <br>
 
